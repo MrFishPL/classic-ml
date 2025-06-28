@@ -64,6 +64,16 @@ class BaseClusterer(BaseEstimator):
         return self.predict(X)
     
 
+class BaseProjector(BaseEstimator):
+    @abstractmethod
+    def transform(self, X):
+        pass
+
+    def fit_transform(self, X):
+        self.fit(X)
+        return self.transform(X)
+
+
 class TreeNode:
     def __init__(
         self, 
